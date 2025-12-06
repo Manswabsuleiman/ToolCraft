@@ -1,0 +1,145 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* NAVBAR */
+.nav {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: #0f3a2b; 
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* LOGO */
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ffffff;
+}
+
+.logo-icon {
+  font-size: 1.8rem;
+}
+
+/* NAVLINKS DESKTOP */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.link:hover,
+.link.active {
+  color: #f7c600;
+}
+
+/* CONTACT BUTTON */
+.btn-contact {
+  padding: 0.5rem 1rem;
+  background: #ffffff;
+  color: #000000;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* TOGGLE BUTTON (Mobile) */
+.nav-toggle {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 0.3rem;
+  z-index: 1100; /* Ensure toggle is above mobile menu */
+}
+
+.bar {
+  height: 3px;
+  width: 25px;
+  background: #01330a; /* Default dark bars for desktop */
+  transition: 0.3s;
+}
+
+/* Make toggle bars white on mobile for visibility */
+@media (max-width: 850px) {
+  .bar {
+    background: #fff;
+  }
+}
+
+/* Animation for toggle (X) */
+.nav-toggle.open .bar1 {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.nav-toggle.open .bar2 {
+  opacity: 0;
+}
+.nav-toggle.open .bar3 {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* MOBILE NAV */
+@media (max-width: 850px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed; /* Cover the entire screen */
+    top: 0;          /* Start from top */
+    right: -100%;    /* Hidden by default */
+    height: 100vh;   /* Full viewport height */
+    width: 70%;      /* Mobile menu width */
+    background: #0f3a2b; /* Dark greenish background */
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 4rem 2rem; /* Space from top + sides */
+    gap: 1.5rem;
+    border-radius: 0; /* Remove corner rounding */
+    transition: 0.4s;
+    box-shadow: -2px 4px 15px rgba(0,0,0,0.3);
+    z-index: 1050; /* Above content but below toggle if needed */
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  .link {
+    color: #fff; /* Links visible on dark background */
+    font-size: 1.1rem;
+  }
+
+  .link:hover,
+  .link.active {
+    color: #f7c600;
+  }
+
+  .btn-contact {
+    background: #ffffff;
+    color: #04350e;
+    width: 100%;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 6px;
+  }
+}
