@@ -82,7 +82,7 @@ const Details = () => {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:8000/api/pesapal/initiate", {
+      const res = await fetch("https://toolcraftbackened.onrender.com/pesapal/initiate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
